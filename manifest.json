@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "something",
+  "version": "1.0",
+  "description": "something",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+      "tabs"
+  ],
+  "icons" : {
+    "128": "icon.png"
+  }
+}
