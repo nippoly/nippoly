@@ -1,21 +1,23 @@
 window.addEventListener('load', () => {
   // TODO: delete when clear method implemented
   //chrome.storage.sync.clear();
-  let cancelBtn = document.getElementById('cancel');
-  let okBtn = document.getElementById('ok');
+  let cancelBtn = document.getElementById("cancel");
+  let okBtn = document.getElementById("ok");
+  let pageTitle = document.getElementById("page-title");
+  let pageUrl = document.getElementById("page-url");
+  chrome.tabs.getSelected(null, (tab) => {
+    pageTitle.value = tab.title;
+    pageUrl.textContent = tab.url;
+  });
   cancelBtn.addEventListener('click', function (e) {
     window.close();
   });
   okBtn.addEventListener('click', function (e) {
     new Promise((resolve, reject) => {
-      chrome.tabs.getSelected(null, resolve);
-    }).then((tab) => new Promise((resolve, reject) => {
-      chrome.storage.sync.get('data', (items) => resolve([items, tab]));
-    })).then((args) => new Promise((resolve, reject) => {
-      let items = args[0];
-      let tab = args[1];
+      chrome.storage.sync.get('data', resolve);
+    }).then((items) => new Promise((resolve, reject) => {
       items.data = items.data || [];
-      items.data.push({title: tab.title, url: tab.url});
+      items.data.push({title: pageTitle.value, url: pageUrl.textContent});
       chrome.storage.sync.set(items, () => {
         let status = document.getElementById('status-bar');
         status.textContent = 'DONE'
