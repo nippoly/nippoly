@@ -1,0 +1,23 @@
+{
+  "name": "chrome_extension",
+  "version": "1.0.0",
+  "description": "やるぞ〜",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanchihiro/chrome_extension.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chanchihiro/chrome_extension/issues"
+  },
+  "homepage": "https://github.com/chanchihiro/chrome_extension#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-slim": "^0.3.0"
+  }
+}
