@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <title>something</title>
-    <script src="/js/popup.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/popup_controller.js"></script>
+    <link href="style/popup.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>
-      Hello World
-    </h1>
     <p id="status-bar"></p>
-    <dl>
-      <dt>
-        url
-      </dt>
-      <dd id="page-url"></dd>
-      <dt>
-        タイトル
-      </dt>
-      <dd id="page-title"></dd>
-    </dl>
+    <p>
+      <label>タイトル
+        <p>
+          <input id="page-title" type="text" />
+        </p>
+      </label>
+    </p>
+    <p>
+      <label>url
+        <p id="page-url"></p>
+      </label>
+    </p>
+    <div id="buttons">
+      <button id="cancel">cancel</button><button id="ok">ok</button>
+    </div>
   </body>
 </html>

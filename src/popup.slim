@@ -4,15 +4,22 @@ html
     meta charset="UTF-8"
     title
       | something
-    script src="/js/popup.js"
+    script src="js/popup.js"
+    script src="js/popup_controller.js"
+    link rel="stylesheet" href="style/popup.css"
   body
-    h1
-      | Hello World
     p#status-bar
-    dl
-      dt
-        | url
-      dd#page-url
-      dt
+    p
+      label
         | タイトル
-      dd#page-title
+        p
+          input#page-title type="text"
+    p
+      label
+        | url
+        p#page-url
+    #buttons
+      button#cancel
+        | cancel
+      button#ok
+        | ok
