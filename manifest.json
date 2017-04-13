@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "something",
-  "version": "1.0",
-  "description": "something",
+  "name": "nippoly",
+  "version": "0.9",
+  "description": "ウェブページからリンクとURLを簡単にコピペできるようになります。",
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
