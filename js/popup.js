@@ -1,6 +1,4 @@
 window.addEventListener('load', () => {
-  // TODO: delete when clear method implemented
-  //chrome.storage.sync.clear();
   let cancelBtn = document.getElementById("cancel");
   let okBtn = document.getElementById("ok");
   let pageTitle = document.getElementById("page-title");
@@ -16,13 +14,13 @@ window.addEventListener('load', () => {
     new Promise((resolve, reject) => {
       chrome.storage.sync.get('data', resolve);
     }).then((items) => new Promise((resolve, reject) => {
-      items.data = items.data || [];
-      items.data.push({title: pageTitle.value, url: pageUrl.textContent});
+      items.data = items.data.filter(item => new Date(item.created_at) >= new Date(Date.now() - 60 * 1000)) || [];
+      items.data.push({title: pageTitle.value, url: pageUrl.textContent, created_at: new Date().toString()});
       chrome.storage.sync.set(items, () => {
         let status = document.getElementById('status-bar');
         status.textContent = 'DONE'
         resolve();
-      })
+      });
     })).then(() => {
       chrome.storage.sync.get('data', (items) => {
         const textArea = document.getElementById('test');
@@ -31,8 +29,14 @@ window.addEventListener('load', () => {
         }, '');
         textArea.select();
         document.execCommand('copy');
-        window.close();
+        //window.close();
       });
     });
   });
+
+  // TODO: if clear button is needed, use this.
+  /*
+  clearBtn.addEventListener('click', () => {
+    chrome.storage.sync.clear();
+  });*/
 });
