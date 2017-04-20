@@ -3,11 +3,31 @@ body {
   padding: 0;
 }
 
+label {
+  border-bottom: 1px solid #000;
+  margin-left: 10px;
+}
+
+#test {
+  opacity: 0.0;
+  height: 0;
+  width: 0;
+}
 
 #page-url {
-
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #page-title {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
+#status-bar {
+
+}
+
+#buttons {
+  text-align: center;
 }
