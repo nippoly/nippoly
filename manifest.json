@@ -9,7 +9,8 @@
   },
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "clipboardRead"
   ],
   "icons" : {
     "128": "icon.png"
