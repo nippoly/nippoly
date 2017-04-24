@@ -23,10 +23,16 @@ window.addEventListener('load', () => {
       chrome.storage.sync.set(items, () => {
         // let status = document.getElementById('status-bar');
         // status.textContent = '追加しました。'
-        let modal = document.getElementById('Rectangle-2');
-        modal.style.opacity = 1.0;
-        modal.style.width = "294px";
-        modal.style.height = "60px";
+        var rect = document.createElement('div');
+        rect.id = "Rectangle-2";
+        var oval = document.createElement('div');
+        var layer = document.createElement('div');
+        oval.id = "Oval";
+        layer.id = "layer";
+        layer.innerHTML = "クリップボードに保存しました。";
+        rect.appendChild(oval);
+        rect.appendChild(layer);
+        document.body.appendChild(rect);
         resolve();
       });
     })).then(() => {
