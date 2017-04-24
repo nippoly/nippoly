@@ -1,6 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: NotoSansCJKjp;
+  font-weight: 500;
+  border: 5px solid #444444;
+  border-radius: 12px;
 }
 
 body {
@@ -12,6 +16,11 @@ body {
 label {
   border-bottom: 1px solid #000;
   margin-left: 10px;
+}
+
+.label-text {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 label > div{
@@ -61,17 +70,29 @@ label > div{
 #page-url {
   margin-left: 20px;
   margin-right: 20px;
+  -webkit-margin-before: 0.5em;
+  -webkit-margin-after: 0.5em;
+  -webkit-margin-end: 0.5px;
 }
 
 #page-title {
   margin-left: 20px;
   margin-right: 20px;
+  width: 240px;
 }
 
-#status-bar {
-
+.menu-item {
+  line-height: 30px;
+  padding-left: 10px;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
-#buttons {
-  text-align: center;
+.menu-item:hover {
+  cursor: pointer;
+  background-color: #ff0033;
+  color: #fff;
 }
+
+
+
