@@ -21,8 +21,12 @@ window.addEventListener('load', () => {
       items.data = (items.data || []).filter(item => new Date(item.created_at) >= new Date(Date.now() - 60 * 1000));
       items.data.push({title: pageTitle.value, url: pageUrl.textContent, created_at: new Date().toString()});
       chrome.storage.sync.set(items, () => {
-        let status = document.getElementById('status-bar');
-        status.textContent = '追加しました。'
+        // let status = document.getElementById('status-bar');
+        // status.textContent = '追加しました。'
+        let modal = document.getElementById('Rectangle-2');
+        modal.style.opacity = 1.0;
+        modal.style.width = "294px";
+        modal.style.height = "60px";
         resolve();
       });
     })).then(() => {
@@ -32,7 +36,7 @@ window.addEventListener('load', () => {
         textArea.textContent = `[${item.title}](${item.url})\n`
         textArea.select();
         document.execCommand('copy');
-        window.close();
+        // window.close();
       });
     });
   });

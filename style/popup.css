@@ -14,6 +14,41 @@ label {
   width: 0;
 }
 
+#Rectangle-2 {
+  opacity: 0.0;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border: solid 2px #444444;
+  margin-right: 10px;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+#Oval {
+  width: 36px;
+  height: 36px;
+  background-color: #d8d8d8;
+  float: left;
+  margin: 12px 0px 12px 12px;
+  border-radius: 18px;
+  border: solid 0px #000000;
+}
+
+#layer {
+  width: 210px;
+  height: 20px;
+  font-family: NotoSansCJKjp;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444444;
+  margin: 20px 21px 20px 15px;
+  float: left;
+}
+
+
 #page-url {
   margin-left: 20px;
   margin-right: 20px;
