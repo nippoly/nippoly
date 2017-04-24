@@ -14,7 +14,6 @@ body {
 }
 
 label {
-  border-bottom: 1px solid #000;
   margin-left: 10px;
 }
 
@@ -93,6 +92,3 @@ label > div{
   background-color: #ff0033;
   color: #fff;
 }
-
-
-
