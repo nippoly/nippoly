@@ -1,7 +1,10 @@
 # nippoly
 ![logo](./images/nippo_logo.png)
 
-## What is nippoly
+## What is nippoly  
+
+**「読んだ！を10倍速くなる」**を実現する24時間以内に読んだ記事をまとめてマークダウン形式で出力してくれるChrome Extensionです。
+
 
 ## How to set up Developer mode
 ### 手順
