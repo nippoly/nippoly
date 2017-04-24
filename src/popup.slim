@@ -9,18 +9,22 @@ html
   body
     div
       label
-        | タイトル
+        span.label-text
+          | タイトル
         div
           input#page-title type="text"
     div
       label
-        | url
+        span.label-text
+          | url
         p#page-url
     #buttons
-      button#cancel
-        | キャンセル
-      button#ok
-        | 生成
-      button#copys
-        | コピー
+      .menu-item#ok
+        | 読んだ！
+      .menu-item#copys
+        | まとめる！
+      .menu-item#delete
+        | 削除する！
+      .menu-item#cancel
+        | やめる！
     textarea#test
