@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
   let cancelBtn = document.getElementById("cancel");
+  let clearBtn = document.getElementById("delete");
   let okBtn = document.getElementById("ok");
   let copyBtn = document.getElementById("copys");
   let pageTitle = document.getElementById("page-title");
@@ -23,13 +24,15 @@ window.addEventListener('load', () => {
       chrome.storage.sync.set(items, () => {
         // let status = document.getElementById('status-bar');
         // status.textContent = '追加しました。'
+        // let befRect = document.getElementById("Rectangle-2");
+        // document.body.removeChild(befRect);
         var rect = document.createElement('div');
         rect.id = "Rectangle-2";
         var oval = document.createElement('div');
         var layer = document.createElement('div');
         oval.id = "Oval";
         layer.id = "layer";
-        layer.innerHTML = "クリップボードに保存しました。";
+        layer.innerHTML = "このページをストックしました。";
         rect.appendChild(oval);
         rect.appendChild(layer);
         document.body.appendChild(rect);
@@ -61,8 +64,8 @@ window.addEventListener('load', () => {
   });
 
   // TODO: if clear button is needed, use this.
-  /*
+
   clearBtn.addEventListener('click', () => {
     chrome.storage.sync.clear();
-  });*/
+  });
 });
