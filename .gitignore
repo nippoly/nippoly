@@ -2,3 +2,4 @@
 *.swp
 /public
 /design
+/node_modules
