@@ -8,19 +8,31 @@
   </head>
   <body>
     <div>
-      <label>タイトル
+      <label><span class="label-text">TITLE</span>
         <div>
           <input id="page-title" type="text" />
         </div>
       </label>
     </div>
     <div>
-      <label>url
+      <label><span class="label-text">URL</span>
         <p id="page-url"></p>
       </label>
     </div>
+    <hr />
     <div id="buttons">
-      <button id="cancel">キャンセル</button><button id="ok">生成</button><button id="copys">コピー</button>
+      <div class="menu-item" id="ok">
+        読んだ！
+      </div>
+      <div class="menu-item" id="copys">
+        まとめる！
+      </div>
+      <div class="menu-item" id="delete">
+        削除する！
+      </div>
+      <div class="menu-item" id="cancel">
+        やめる！
+      </div>
     </div>
     <textarea id="test"></textarea>
   </body>
