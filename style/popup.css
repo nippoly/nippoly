@@ -11,6 +11,7 @@ body {
   padding: 10px 5px 0px;
   box-sizing: border-box;
   width: 300px;
+  color: #222;
 }
 
 label {
@@ -30,38 +31,41 @@ label > div{
   opacity: 0.0;
   height: 0;
   width: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 #Rectangle-2 {
-  width: 294px;
-  height: 60px;
+  width: 280px;
+  height: 40px;
   border-radius: 5px;
   background-color: #ffffff;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 6px;
   z-index: 1;
 }
 
 #Oval {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   background-image: url(../icon.png);
   -webkit-background-size: cover;
   background-size: cover;
   float: left;
-  margin: 12px 0px 12px 12px;
+  margin: 0px 0px 0px 8px;
   border-radius: 50%;
   border: solid 0px #000000;
 }
 
 #layer {
-  width: 210px;
+  width: 220px;
   height: 20px;
   font-family: NotoSansCJKjp;
   font-size: 14px;
   font-weight: bold;
   color: #444444;
-  margin: 20px 21px 20px 15px;
+  margin: 4px 0px 0px 15px;
   float: left;
 }
 
