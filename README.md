@@ -1,6 +1,9 @@
-# chrome_extension
+# nippoly
+![logo](./images/nippo_logo.png)
 
-## How to set up test mode
+## What is nippoly
+
+## How to set up Developer mode
 ### 手順
 1. **ツール > 拡張機能** にアクセス
 2. **デベロッパーモード > パッケージ化されていない拡張機能を読み込む** を選択肢します
