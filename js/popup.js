@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  let cancelBtn = document.getElementById("cancel");
+  // let cancelBtn = document.getElementById("cancel");
   let clearBtn = document.getElementById("delete");
   let okBtn = document.getElementById("ok");
   let copyBtn = document.getElementById("copys");
@@ -11,9 +11,9 @@ window.addEventListener('load', () => {
     pageUrl.textContent = tab.url;
   });
 
-  cancelBtn.addEventListener('click', function (e) {
-    window.close();
-  });
+  // cancelBtn.addEventListener('click', function (e) {
+  //   window.close();
+  // });
 
   okBtn.addEventListener('click', function (e) {
     new Promise((resolve, reject) => {
