@@ -7,6 +7,10 @@
     "default_popup": "popup.html",
     "default_icon": "icon.png"
   },
+  "background": {
+    "scripts": ["js/copyToClipBoard.js"],
+    "persistent": false
+  },
   "permissions": [
     "tabs",
     "storage",
