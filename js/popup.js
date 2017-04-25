@@ -40,12 +40,11 @@ window.addEventListener('load', () => {
       });
     })).then(() => {
       chrome.storage.sync.get('data', (items) => {
-        const textArea = document.getElementById('test');
         const item = items.data[items.data.length - 1];
-        textArea.textContent = `[${item.title}](${item.url})\n`
-        textArea.select();
-        document.execCommand('copy');
-        // window.close();
+        chrome.runtime.sendMessage({
+          md: `[${item.title}](${item.url})\n`,
+          closeWindow: false
+        });
       });
     });
   });
@@ -53,12 +52,12 @@ window.addEventListener('load', () => {
 
   copyBtn.addEventListener('click', function (e) {
     chrome.storage.sync.get('data', (items) => {
-      const textArea = document.getElementById('test');
-      textArea.textContent = items.data.reduce((result, item) => {
+      const md = items.data.reduce((result, item) => {
         return `${result}- [${item.title}](${item.url})\n`
       }, '');
-      textArea.select();
-      document.execCommand('copy');
+      chrome.runtime.sendMessage({
+        md: md
+      });
       window.close();
     });
   });
