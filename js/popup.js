@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-  // let cancelBtn = document.getElementById("cancel");
   let clearBtn = document.getElementById("delete");
   let okBtn = document.getElementById("ok");
   let copyBtn = document.getElementById("copys");
@@ -10,10 +9,6 @@ window.addEventListener('load', () => {
     pageTitle.value = tab.title;
     pageUrl.textContent = tab.url;
   });
-
-  // cancelBtn.addEventListener('click', function (e) {
-  //   window.close();
-  // });
 
   okBtn.addEventListener('click', function (e) {
     new Promise((resolve, reject) => {
@@ -68,15 +63,12 @@ window.addEventListener('load', () => {
       var layer = document.createElement('div');
       oval.id = "Oval";
       layer.id = "layer";
-      layer.innerHTML = "読んだものをCBにまとめました。";
+      layer.innerHTML = "クリップボードにまとめました。";
       rect.appendChild(oval);
       rect.appendChild(layer);
       document.body.appendChild(rect);
-      // window.close();
     });
   });
-
-  // TODO: if clear button is needed, use this.
 
   clearBtn.addEventListener('click', () => {
     if (document.getElementById('Rectangle-2') != null) {
