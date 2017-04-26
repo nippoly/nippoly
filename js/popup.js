@@ -14,8 +14,10 @@ window.addEventListener('load', () => {
     new Promise((resolve, reject) => {
       chrome.storage.sync.get('data', resolve);
     }).then((items) => new Promise((resolve, reject) => {
-      items.data = (items.data || []).filter(item => new Date(item.created_at) >= new Date(Date.now() - 24 * 3600 * 1000));
-      items.data.push({title: pageTitle.value, url: pageUrl.textContent, created_at: new Date().toString()});
+      let newItem = {title: pageTitle.value, url: pageUrl.textContent, created_at: new Date().toString()};
+      items.data = items.data || [];
+      items.data.push(newItem);
+      items.data = items.data.filter((item, p) => new Date(item.created_at) >= new Date(Date.now() - 24 * 3600 * 1000) && p == items.data.findIndex(item2 => item.url == item2.url));
       chrome.storage.sync.set(items, () => {
         if (document.getElementById('Rectangle-2') != null) {
           let befRect = document.getElementById('Rectangle-2');
@@ -31,15 +33,12 @@ window.addEventListener('load', () => {
         rect.appendChild(oval);
         rect.appendChild(layer);
         document.body.appendChild(rect);
-        resolve();
+        resolve(newItem);
       });
-    })).then(() => {
-      chrome.storage.sync.get('data', (items) => {
-        const item = items.data[items.data.length - 1];
-        chrome.runtime.sendMessage({
-          md: `[${item.title}](${item.url})\n`,
-          closeWindow: false
-        });
+    })).then((item) => {
+      chrome.runtime.sendMessage({
+        md: `[${item.title}](${item.url})\n`,
+        closeWindow: false
       });
     });
   });
