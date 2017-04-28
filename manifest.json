@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "nippoly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "読んだ！が10倍速くなる",
   "browser_action": {
     "default_popup": "popup.html",
