@@ -48,7 +48,6 @@ window.addEventListener('load', () => {
   copyBtn.addEventListener('click', function (e) {
     chrome.storage.sync.get('data', (items) => {
       const md = items.data.reduce((result, item) => {
-        console.log(item.comment);
         if (item.comment !== ""){
           return `${result}- [${item.title}](${item.url})\n${item.comment}\n`
         }else{
