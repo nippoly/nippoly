@@ -78,7 +78,7 @@ label > div{
   -webkit-margin-end: 0.5px;
 }
 
-#page-title {
+#page-title,#page-comment{
   margin-left: 20px;
   margin-right: 20px;
   width: 240px;
