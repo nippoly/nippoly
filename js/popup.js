@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
   let copyBtn = document.getElementById("copys");
   let pageTitle = document.getElementById("page-title");
   let pageUrl = document.getElementById("page-url");
+  let pageComment = document.getElementById("page-comment");
 
   chrome.tabs.getSelected(null, (tab) => {
     pageTitle.value = tab.title;
@@ -14,7 +15,7 @@ window.addEventListener('load', () => {
     new Promise((resolve, reject) => {
       chrome.storage.sync.get('data', resolve);
     }).then((items) => new Promise((resolve, reject) => {
-      let newItem = {title: pageTitle.value, url: pageUrl.textContent, created_at: new Date().toString()};
+      let newItem = {title: pageTitle.value,comment: pageComment.value, url: pageUrl.textContent, created_at: new Date().toString()};
       items.data = items.data || [];
       items.data.push(newItem);
       items.data = items.data.filter((item, p) => new Date(item.created_at) >= new Date(Date.now() - 24 * 3600 * 1000) && p == items.data.findIndex(item2 => item.url == item2.url));
@@ -37,7 +38,7 @@ window.addEventListener('load', () => {
       });
     })).then((item) => {
       chrome.runtime.sendMessage({
-        md: `[${item.title}](${item.url})\n`,
+        md: `[${item.title}](${item.url})${item.comment}\n`,
         closeWindow: false
       });
     });
@@ -47,7 +48,12 @@ window.addEventListener('load', () => {
   copyBtn.addEventListener('click', function (e) {
     chrome.storage.sync.get('data', (items) => {
       const md = items.data.reduce((result, item) => {
-        return `${result}- [${item.title}](${item.url})\n`
+        console.log(item.comment);
+        if (item.comment !== ""){
+          return `${result}- [${item.title}](${item.url})\n${item.comment}\n`
+        }else{
+          return `${result}- [${item.title}](${item.url})\n`
+        }
       }, '');
       chrome.runtime.sendMessage({
         md: md
