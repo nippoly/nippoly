@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
       let newItem = {title: pageTitle.value,comment: pageComment.value, url: pageUrl.textContent, created_at: new Date().toString()};
       items.data = items.data || [];
       items.data.push(newItem);
-      items.data = items.data.filter((item, p) => new Date(item.created_at) >= new Date(Date.now() - 24 * 3600 * 1000) && p == items.data.findIndex(item2 => item.url == item2.url));
+      items.data = items.data.filter((item, p) => p == items.data.findIndex(item2 => item.url == item2.url));
       chrome.storage.sync.set(items, () => {
         if (document.getElementById('Rectangle-2') != null) {
           let befRect = document.getElementById('Rectangle-2');
