@@ -71,6 +71,7 @@ window.addEventListener('load', () => {
       rect.appendChild(oval);
       rect.appendChild(layer);
       document.body.appendChild(rect);
+      chrome.storage.sync.clear();
     });
   });
 
