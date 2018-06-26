@@ -18,5 +18,28 @@
   ],
   "icons" : {
     "128": "icon.png"
+  },
+  "commands" : {
+    "read-page" : {
+      "suggested_key" : {
+        "default" : "Ctrl",
+        "mac" : "MacCtrl"
+      },
+      "description" : "save current page"
+    },
+    "collect-page" : {
+      "suggested_key" : {
+        "default" : "Ctrl",
+        "mac" : "MacCtrl"
+      },
+      "description" : "get all links"
+    },
+    "remove-page" : {
+      "suggested_key" : {
+        "default" : "Ctrl",
+        "mac" : "MacCtrl"
+      },
+      "description" : "remove links"
+    }
   }
 }
