@@ -6,18 +6,37 @@ window.addEventListener('load', () => {
   let pageUrl = document.getElementById("page-url");
   let pageComment = document.getElementById("page-comment");
 
+  const findData = (items, url) => {
+    return items.data.filter((item) => item.url === url)[0] || null
+  }
+
   chrome.tabs.getSelected(null, (tab) => {
     pageTitle.value = tab.title;
     pageUrl.textContent = tab.url;
+    new Promise((resolve, reject) => {
+      chrome.storage.sync.get('data', resolve)
+    }).then((items) => new Promise((resolve, reject) => {
+      items.data = items.data || [];
+      const data = findData(items, tab.url);
+      if (data) {
+        pageComment.value = data.comment;
+      }
+    }));
   });
 
   okBtn.addEventListener('click', function (e) {
     new Promise((resolve, reject) => {
       chrome.storage.sync.get('data', resolve);
     }).then((items) => new Promise((resolve, reject) => {
-      let newItem = {title: pageTitle.value,comment: pageComment.value, url: pageUrl.textContent, created_at: new Date().toString()};
       items.data = items.data || [];
-      items.data.push(newItem);
+      let item = findData(items, pageUrl.textContent);
+      if (item) {
+        item.comment = pageComment.value;
+        items.data[items.data.findIndex(item2 => item2.url === item.url)] = item;
+      } else {
+        item = { title: pageTitle.value, comment: pageComment.value, url: pageUrl.textContent, created_at: new Date().toString() };
+        items.data.push(item);
+      }
       items.data = items.data.filter((item, p) => p == items.data.findIndex(item2 => item.url == item2.url));
       chrome.storage.sync.set(items, () => {
         if (document.getElementById('Rectangle-2') != null) {
@@ -48,9 +67,9 @@ window.addEventListener('load', () => {
   copyBtn.addEventListener('click', function (e) {
     chrome.storage.sync.get('data', (items) => {
       const md = items.data.reduce((result, item) => {
-        if (item.comment !== ""){
+        if (item.comment !== "") {
           return `${result}- [${item.title}](${item.url})\n${item.comment}\n`
-        }else{
+        } else {
           return `${result}- [${item.title}](${item.url})\n`
         }
       }, '');

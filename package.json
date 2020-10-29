@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/chanchihiro/chrome_extension#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-slim": "^0.3.0"
   }
 }
