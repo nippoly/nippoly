@@ -67,4 +67,5 @@ typings/
 # next.js build output
 .next
 
+chrome_extension
 

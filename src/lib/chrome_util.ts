@@ -7,6 +7,10 @@ export type Data = {
   created_at: string;
 };
 
+export type Store = {
+  data?: Data[];
+};
+
 export const findIndex = (datas: Data[], url: string) => {
   return datas.findIndex((data) => data.url === url);
 };
@@ -19,7 +23,7 @@ export const getData = (callback: ChromeStorageCallback) => {
   chrome.storage.sync.get("data", callback);
 };
 
-export const setData = (items: Object, callback: () => void) => {
+export const setData = (items: Store, callback: () => void) => {
   chrome.storage.sync.set(items, callback);
 };
 
